@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { consultaEditarPedido, obtenerPedido } from "../../helpers/queries";
 
 const EditarPedido = () => {
+  const [productosDelMenu , setProductosDelMenu] = useState([])
   const {id}= useParams();
   const navegacion = useNavigate();
   const {
@@ -18,16 +19,17 @@ const EditarPedido = () => {
   
   useEffect(()=>{
     obtenerPedido(id).then((respuesta)=>{
-      console.log(respuesta);
       setValue('usuario', respuesta.usuario)
       setValue('fecha', respuesta.fecha)
       setValue('estado', respuesta.estado)
       setValue('nota', respuesta.nota)
+      setProductosDelMenu(respuesta.productosDelMenu)
     })
   }, [])
 
   const onSubmit = (pedidoEditado) =>{
-    consultaEditarPedido(pedidoEditado, id).then((respuesta)=>{
+    const pedidoCompleto = {...pedidoEditado, productosDelMenu}
+    consultaEditarPedido(pedidoCompleto, id).then((respuesta)=>{
       if (respuesta) {
         if (respuesta.status === 200) {
           Swal.fire('Pedido actualizado', `El pedido: ${pedidoEditado.fecha} fue editado correctamente`, 'success');
@@ -57,7 +59,7 @@ const EditarPedido = () => {
 
         <Form.Group className="mb-3" controlId="formFecha">
           <Form.Label className="fs-4">Fecha</Form.Label>
-          <Form.Control type="date" disabled {...register("fecha")}></Form.Control>
+          <Form.Control type="text" disabled {...register("fecha")}></Form.Control>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formCategoria">
@@ -90,7 +92,7 @@ const EditarPedido = () => {
                 message: "La nota debe tener como máximo 30 carácteres",
               },
               pattern: {
-                value: /^([A-Z\u00D1])[A-Za-z0-9:,.\s\u00D1\u00F1]{1,29}$/,
+                value: /^[A-Za-z\u00D1\u00F1][A-Za-z0-9:,.\s\u00D1\u00F1]{1,29}$/,
                 message:
                   "La nota debe ser corta entre 2 y 30 carácteres (puede usar letras, numeros y signos de puntuacion",
               },
