@@ -3,7 +3,7 @@ import Categoria from "./Categoria";
 
 const ContenedorCategorias = ({setCategoriaBuscada}) => {
   return (
-    <section className="table-responsive" id="categoria">
+    <section className="table-responsive mt-3" id="categoria">
       <Table>
         <thead>
           <tr>

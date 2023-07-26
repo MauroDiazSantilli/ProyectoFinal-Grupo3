@@ -22,15 +22,15 @@ h1, h2{
   overflow: hidden;
 }
 
-/*Navbbar*/
+/*Navbar*/
 
 .navbar-cristal {
-  background-color: lightslategray; 
+  background-color: #8B4513; 
   backdrop-filter: blur(10px); 
 }
 
 .navbar-cristal .nav-link:hover {
-  color: goldenrod;
+  color: gold;
 }
 
 .logoJSON{
@@ -64,6 +64,21 @@ html {
   scroll-behavior: smooth;
 }
 
+
+.navbar-oscuro {
+  background-color: #222;
+  color: #fff;
+}
+
+.navbar-oscuro .nav-link:hover {
+  color: gold;
+}
+
+.btn-modo-oscuro {
+  margin-left: 10px;
+}
+
+
 @media (max-width: 991.98px) {
   .btn-cerrar-sesion {
     margin-top: 20px; 
@@ -75,8 +90,9 @@ html {
 /* .banner-image {
   background: linear-gradient(to right, #161616 65%, #C0FF0D 40%);
 } */
+
 .banner{
-  height: 100dvh;
+  height: 100vh;
 }
 #banner-image{
   display:none;
@@ -133,13 +149,26 @@ html {
 
 /*Footer*/
 
+.footer {
+  background-color: slategrey;
+  margin-top: 50px;
+  padding-top: 30px;
+  flex-grow: 1;
+  overflow: hidden
+}
+
+.footer-oscuro {
+  background-color: #222;
+  color: #fff;
+}
+
 .footer-link {
   color: white;
   text-decoration: none;
 }
 
 .footer-link:hover {
-  color: goldenrod;
+  color: gold;
 }
 
 .footer-icon-link {
@@ -147,7 +176,7 @@ html {
 }
 
 .footer-icon {
-  fill: #b8860b;
+  fill: gold;
 }
 
 .footer-icon:hover {
@@ -156,6 +185,10 @@ html {
 
 .footer-text {
   margin-left: 5px;
+}
+
+.texto-derechos{
+  color: azure;
 }
 
 /*Error 404*/
@@ -207,6 +240,10 @@ html {
   .fondo-acerca {
     background-image: url('../src/assets/Interior.jpg');
     
+  }
+
+  .texto-acerca{
+    color: #2F4F4F;
   }
 
   /* Pedido */
@@ -301,4 +338,67 @@ textarea{
   .imagenCard{
     aspect-ratio: 1/0.5;
   }
+}
+
+/*Modo Oscuro*/
+
+.modo-oscuro {
+  --detalles: #a38c6d;
+  --texto-secundario: goldenrod;
+  background-color: #333;
+  color: #fff;
+}
+
+.modo-oscuro .navbar-cristal {
+  background-color: #222;
+}
+
+.modo-oscuro .navbar-cristal .nav-link:hover {
+  color: gold;
+}
+
+.modo-oscuro .btn-cerrar-sesion {
+  margin-top: 20px; 
+}
+
+.modo-oscuro .footer {
+  background-color: #222;
+  color: #fff;
+}
+
+.modo-oscuro .footer-link {
+  color: #fff;
+}
+
+.modo-oscuro .footer-link:hover {
+  color: gold;
+}
+
+.modo-oscuro .footer-icon {
+  fill: gold;
+}
+
+.modo-oscuro .footer-icon:hover {
+  fill: azure;
+}
+
+.modo-oscuro .texto-derechos {
+  color: azure;
+}
+
+.modo-oscuro .texto-acerca{
+color: goldenrod;
+}
+
+.tabla-oscuro {
+  background-color: #333; 
+  color: #fff; 
+}
+
+.tabla-oscuro th {
+  background-color: #222; 
+}
+
+.tabla-oscuro td {
+  border-color: #444; 
 }

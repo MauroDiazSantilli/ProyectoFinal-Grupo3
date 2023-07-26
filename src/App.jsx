@@ -18,10 +18,21 @@ function App() {
 
   const usuarioStorage = JSON.parse(sessionStorage.getItem('usuario')) || {}
   const [usuarioLogueado, setUsuarioLogueado] = useState(usuarioStorage);
+  const [modoOscuro, setModoOscuro] = useState(false)
+
+  const cambiarModoOscuro = () => {
+    setModoOscuro(prevModo => !prevModo);
+  };
+
+  if (modoOscuro) {
+    document.body.classList.add("modo-oscuro");
+  } else {
+    document.body.classList.remove("modo-oscuro");
+  }
 
   return (
     <BrowserRouter>
-      <Menu usuarioLogueado={usuarioLogueado} setUsuarioLogueado={setUsuarioLogueado}></Menu>
+      <Menu usuarioLogueado={usuarioLogueado} setUsuarioLogueado={setUsuarioLogueado} modoOscuro={modoOscuro} cambiarModoOscuro={cambiarModoOscuro} />
       <Routes>
       <Route path="/" element={<PagPrincipal></PagPrincipal>}></Route> 
       <Route exact path="/administrador/*" element={
@@ -36,7 +47,7 @@ function App() {
       <Route exact path="/registro" element={<RegistroUsuarios></RegistroUsuarios>} ></Route>
       <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>} ></Route>
       </Routes>
-      <Footer></Footer>
+      <Footer modoOscuro={modoOscuro} />
     </BrowserRouter>
   );
 }

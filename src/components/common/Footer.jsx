@@ -4,12 +4,13 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { FaEnvelope, FaFacebook, FaInstagram, FaPhoneAlt, FaYoutube, FaTwitter, FaLocationArrow, FaPinterest } from 'react-icons/fa';
 import '../../App.css';
 
-const Footer = () => {
+const Footer = ({ modoOscuro }) => {
 
   const urlGoogle = "https://www.google.com/maps/search/?api=1&query=General+Paz+576%2C+T4000+San+Miguel+de+Tucumán%2C+Tucumán";
 
   return (
-    <footer className="bg-dark text-light py-4 mainSection">
+    
+    <footer className={`footer ${modoOscuro ? "footer-oscuro" : ""}`}>
       <Container>
         <Row>
           <Col md={3}>
@@ -34,7 +35,7 @@ const Footer = () => {
             <ul className="list-unstyled">
               <li><Link to="/login" className="footer-link">Iniciar Sesión</Link></li>
               <li><Link to="/registro" className="footer-link">Registrarse</Link></li>
-              <li><Link to="/carrito" className="footer-link">Mis Productos</Link></li>
+              <li><Link to="/pedido" className="footer-link">Mis Productos</Link></li>
             </ul>
           </Col>
           <Col md={3}>
@@ -68,8 +69,8 @@ const Footer = () => {
                 </li>
               </div>
               <li className="pt-2">
-                <FaPhoneAlt className="text-secondary" />
-                <span className="footer-text">+038142567890</span>
+                <FaPhoneAlt className="text-white" />
+                <span className="footer-text text-white">+038142567890</span>
               </li>
               <li className="my-3">
                 <FaEnvelope className="text-white" />
@@ -83,8 +84,8 @@ const Footer = () => {
           </Col>
         </Row>
       </Container>
-      <div className="bg-dark text-light text-center py-3">
-        <p>&copy; Todos los derechos reservados</p>
+      <div className={`footer ${modoOscuro ? "footer-oscuro" : ""}`}>
+        <p className="texto-derechos text-center">&copy; Todos los derechos reservados</p>
       </div>
     </footer>
   );
