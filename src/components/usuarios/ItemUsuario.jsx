@@ -37,11 +37,13 @@ const ItemUsuario = ({usuario, setUsuarios}) => {
     });
   }
 
+
+  console.log(usuario.estado)
   return (
     <tr>
       <td>{usuario.nombreUsuario}</td>
       <td>{usuario.email}</td>
-      <td>{usuario.rol}</td>
+      <td>{usuario.estado === true? "Habilitado" : "Suspendido"}</td>
       <td>
         <Link
           className="btn btn-warning mb-2 mb-md-0"

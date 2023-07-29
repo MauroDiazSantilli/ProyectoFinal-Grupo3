@@ -110,18 +110,14 @@ const Pedido = () => {
 
         }).then((result) => {
             if (result.isConfirmed) {
-                // console.log(productosDelMenu)
-                // console.log(usuario.nombreUsuario)
-                // console.log(estado)
-                // console.log(nota)
-                // obtenerFechaDeHoy()
-                // console.log(fecha)
                 const nuevoPedido = {
                     productosDelMenu: productosDelMenu.map((producto) => producto.id), // Solo seleccionar el id de cada producto
                     usuario: usuario.nombreUsuario,
                     estado,
                     nota: nota.nota,
                     fecha,
+                    subTotal: calcularTotal()
+
                 }; console.log(nuevoPedido)
                 crearPedido(nuevoPedido).then((respuesta) => {
                     if (respuesta.status === 201) {

@@ -8,7 +8,7 @@ const Comida = ({ producto }) => {
   const agregarProductoAlPedido = (idProducto) => {
 
     const usuarioEnSession = JSON.parse(sessionStorage.getItem('usuario')) || null;
-    if(usuarioEnSession){
+    if (usuarioEnSession) {
       Swal.fire({
         title: 'Estás seguro?',
         text: "Seguro que deseas agregar este producto al pedido?",
@@ -18,7 +18,7 @@ const Comida = ({ producto }) => {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Si, estoy seguro!',
         cancelButtonText: 'Cancelar',
-  
+
       }).then((result) => {
         if (result.isConfirmed) {
           // Obtener el array actual de nombres de id de productos desde la sessionStorage
@@ -34,14 +34,26 @@ const Comida = ({ producto }) => {
           )
         }
       })
-    } else{
+    } else {
       Swal.fire(
         'Alerta',
         'Debe loguearse para poder agregar productos al pedido',
         'warning'
       )
     }
-    
+
+  }
+
+  const verificarDisponibilidad = () => {
+    if (producto.estado === true) {
+      return <Button id="btn-comida" className="btn w-100" type="button" onClick={() => agregarProductoAlPedido(producto.id)}>
+        Agregar al pedido
+      </Button>
+    } else {
+      return <Button id="btn-comida" className="btn w-100" type="button" disabled>
+        Producto Agotado
+      </Button>
+    }
   }
 
   return (
@@ -63,9 +75,7 @@ const Comida = ({ producto }) => {
               </p>
               <h5 className="card-title" id="precio-comida">$ {producto.precio}</h5>
               <Link to={`/detalleProducto/${producto.id}`} id="btn-verdetalle" className="btn w-100 mb-2" >Ver detalle</Link>
-              <Button id="btn-comida" className="btn w-100" type="button" onClick={() => agregarProductoAlPedido(producto.id)}>
-                Agregar al pedido
-              </Button>
+              {verificarDisponibilidad()}
             </div>
           </div>
         </div>

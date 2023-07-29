@@ -39,8 +39,9 @@ const RegistroUsuarios = () => {
     } else {
       newData.isAdmin = false;
     }
-  
-    crearUsuario(newData)
+    const nuevoUsuario = {...newData, estado:true }
+    crearUsuario(nuevoUsuario)
+    
       .then((respuesta) => {
         if (respuesta.ok) {
           Swal.fire('Usuario creado', 'El usuario ha sido registrado correctamente', 'success')

@@ -6,6 +6,7 @@ import AdminPedidos from "../pedidos/AdminPedidos";
 import EditarProducto from "../productos/EditarProducto";
 import EditarPedido from "../pedidos/EditarPedido";
 import EditarUsuario from "../usuarios/EditarUsuario";
+import Error404 from "../views/Error404";
 
 const RutasAdministrador = () => {
   return (
@@ -22,19 +23,23 @@ const RutasAdministrador = () => {
           path="/productos/editar/:id"
           element={<EditarProducto></EditarProducto>}
         ></Route>
-        <Route path="/pedidos" element={<AdminPedidos></AdminPedidos>}></Route>
+        <Route exact path="/pedidos" element={<AdminPedidos></AdminPedidos>}></Route>
         <Route
+        exact
           path="/pedidos/editar/:id"
           element={<EditarPedido></EditarPedido>}
         ></Route>
         <Route
+        exact
           path="/usuarios"
           element={<AdminUsuarios></AdminUsuarios>}
         ></Route>
         <Route
+        exact
           path="/usuarios/editar/:id"
           element={<EditarUsuario></EditarUsuario>}
         ></Route>
+         <Route path="*" element={<Error404></Error404>} ></Route>
       </Routes>
     </>
   );

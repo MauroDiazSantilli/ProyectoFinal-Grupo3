@@ -41,7 +41,7 @@ const AdminProductos = () => {
             <tr>
               <th>Nombre del Producto</th>
               <th>Precio</th>
-              <th>Cantidad</th>
+              <th>Estado</th>
               <th>Categoria</th>
               <th>Opciones</th>
             </tr>

@@ -40,7 +40,7 @@ const ItemProducto = ({ producto, setProductos }) => {
     <tr>
       <td>{producto.nombreProducto}</td>
       <td>{producto.precio}</td>
-      <td>{producto.cantidad}</td>
+      <td>{producto.estado === true? "Disponible":"Agotado"}</td>
       <td>{producto.categoria}</td>
       <td>
         <Link

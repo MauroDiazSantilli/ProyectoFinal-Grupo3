@@ -26,20 +26,6 @@ const ItemPedido = ({ pedido, setPedidos, actualizarPedidos }) => {
     verificarEstado()
   }, [pedidoEstado])
 
-  const calcularTotal = () => {
-    let total = 0;
-    // Verificar si los productos se han cargado
-    if (productos.length > 0) {
-      pedido.productosDelMenu.forEach((idProducto) => {
-        productos.forEach((productoDB) => {
-          if (productoDB.id === idProducto) {
-            total = total + +productoDB.precio;
-          }
-        });
-      });
-    }
-    return total;
-  };
 
   const eliminarPedido = () => {
     Swal.fire({
@@ -151,7 +137,7 @@ const ItemPedido = ({ pedido, setPedidos, actualizarPedidos }) => {
             ))}
           </ul>
           <h6>Nota: {pedido.nota}</h6>
-          <h6 className="text-end">Total: ${calcularTotal()}</h6>
+          <h6 className="text-end">Total: ${pedido.subTotal}</h6>
         </Card.Body>
         <Card.Footer className="justify-content-end d-flex">
           <Link

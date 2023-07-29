@@ -19,16 +19,28 @@ const EditarUsuario = () => {
 
   useEffect(()=>{
     obtenerUsuario(id).then((respuesta)=>{
+      if(respuesta.estado === true){
+        respuesta.estado = "habilitada"
+      } else{
+        respuesta.estado = "suspendida"
+      }
+      if(respuesta.isAdmin === true){
+        respuesta.isAdmin = "administrador"
+      } else{
+        respuesta.isAdmin = "cliente"
+      }
       setValue('nombreUsuario', respuesta.nombreUsuario);
       setValue('email', respuesta.email);
       setValue('password', respuesta.password)
       setValue('estado', respuesta.estado);
-      setValue('rol', respuesta.rol);
+      setValue('isAdmin', respuesta.isAdmin);
     })
   }, [])
 
   const onSubmit = (usuarioEditado) =>{
-    console.log(usuarioEditado);
+    usuarioEditado.estado = usuarioEditado.estado === "habilitada" ? true : false;
+    usuarioEditado.isAdmin = usuarioEditado.isAdmin === "administrador" ? true : false;
+
     consultaEditarUsuario(usuarioEditado, id).then((respuesta)=>{
         if (respuesta) {
             if (respuesta.status === 200) {
@@ -65,8 +77,8 @@ const EditarUsuario = () => {
             {...register("estado", { required: "Debe elegir una opcion" })}
           >
             <option value="">Seleccione el estado de la cuenta</option>
-            <option value="Habilitada">Habilitada</option>
-            <option value="Suspendida">Suspendida</option>
+            <option value="habilitada">Habilitada</option>
+            <option value="suspendida">Suspendida</option>
           </Form.Select>
           <Form.Text className="text-danger">
             {errors.estado?.message}
@@ -77,14 +89,14 @@ const EditarUsuario = () => {
           <Form.Label className="fs-4">Perfil del Usuario*</Form.Label>
           <Form.Select
             aria-label="Perfil"
-            {...register("rol", { required: "Debe elegir una opcion" })}
+            {...register("isAdmin", { required: "Debe elegir una opcion" })}
           >
             <option value="">Seleccione el perfil del usuario</option>
             <option value="cliente">Cliente</option>
             <option value="administrador">Administrador</option>
           </Form.Select>
           <Form.Text className="text-danger">
-            {errors.perfil?.message}
+            {errors.isAdmin?.message}
           </Form.Text>
         </Form.Group>
 

@@ -5,6 +5,7 @@ import { consultaeditarProducto, obtenerProducto } from "../../helpers/queries";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 const EditarProducto = () => {
+
   const {id}= useParams();
   const navegacion = useNavigate();
   const {
@@ -17,16 +18,24 @@ const EditarProducto = () => {
 
   useEffect(()=>{
     obtenerProducto(id).then((respuesta)=>{
+      if(respuesta.estado === true){
+        respuesta.estado = "disponible"
+      } else{
+        respuesta.estado = "agotado"
+      }
       setValue('nombreProducto', respuesta.nombreProducto)
       setValue('precio', respuesta.precio)
       setValue('categoria', respuesta.categoria)
       setValue('imagen', respuesta.imagen)
       setValue('detalle', respuesta.detalle)
+      setValue('estado', respuesta.estado);
       setValue('cantidad', respuesta.cantidad)
     })
   }, [])
 
   const onSubmit = (productoEditado) =>{
+    productoEditado.estado = productoEditado.estado === "disponible" ? true : false;
+
     consultaeditarProducto(productoEditado, id).then((respuesta)=>{
       if (respuesta) {
         if (respuesta.status === 200) {
@@ -170,29 +179,18 @@ const EditarProducto = () => {
           </Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formPrecio">
-          <Form.Label className="fs-4">Cantidad*</Form.Label>
-          <Form.Control
-            type="number"
-            placeholder="Ingrese la cantidad"
-            {...register("cantidad", {
-              required: "La cantidad del producto es obligatorio",
-              min: {
-                value: 1,
-                message: "La cantidad minima es 1",
-              },
-              max: {
-                value: 30000,
-                message: "La cantidad máxima es 30.000",
-              },
-              pattern: {
-                value: /[0-9]{1,5}$/,
-                message: "Cantidad solo puede contener números",
-              },
-            })}
-          ></Form.Control>
+         <Form.Group className="mb-3" controlId="formEstado">
+          <Form.Label className="fs-4">Estado del producto*</Form.Label>
+          <Form.Select
+            aria-label="Estado"
+            {...register("estado", { required: "Debe elegir una opcion" })}
+          >
+            <option value="">Seleccione el estado del producto</option>
+            <option value="disponible">Disponible</option>
+            <option value="agotado">Agotado</option>
+          </Form.Select>
           <Form.Text className="text-danger">
-            {errors.cantidad?.message}
+            {errors.estado?.message}
           </Form.Text>
         </Form.Group>
 

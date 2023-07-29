@@ -34,18 +34,18 @@ function App() {
     <BrowserRouter>
       <Menu usuarioLogueado={usuarioLogueado} setUsuarioLogueado={setUsuarioLogueado} modoOscuro={modoOscuro} cambiarModoOscuro={cambiarModoOscuro} />
       <Routes>
-      <Route path="/" element={<PagPrincipal></PagPrincipal>}></Route> 
-      <Route exact path="/administrador/*" element={
-        <RutasProtegidas>
-      <RutasAdministrador></RutasAdministrador>
-      </RutasProtegidas>
-      }></Route>
-      <Route path="/404" element={<Error404></Error404>}></Route> 
-      <Route path="/AcercaDe" element={<SobreNosotros></SobreNosotros>}></Route> 
-      <Route exact path="/detalleProducto/:id" element={<DetalleProducto></DetalleProducto>} ></Route>
-      <Route exact path="/pedido" element={<Pedido></Pedido>} ></Route>
-      <Route exact path="/registro" element={<RegistroUsuarios></RegistroUsuarios>} ></Route>
-      <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>} ></Route>
+        <Route path="/" element={<PagPrincipal></PagPrincipal>}></Route>
+        <Route exact path="/administrador/*" element={
+          <RutasProtegidas>
+            <RutasAdministrador></RutasAdministrador>
+          </RutasProtegidas>
+        }></Route>
+        <Route path="/AcercaDe" element={<SobreNosotros></SobreNosotros>}></Route>
+        <Route exact path="/detalleProducto/:id" element={<DetalleProducto></DetalleProducto>} ></Route>
+        <Route exact path="/pedido" element={<Pedido></Pedido>} ></Route>
+        <Route exact path="/registro" element={<RegistroUsuarios></RegistroUsuarios>} ></Route>
+        <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>} ></Route>
+        <Route path="*" element={<Error404></Error404>}></Route>
       </Routes>
       <Footer modoOscuro={modoOscuro} />
     </BrowserRouter>

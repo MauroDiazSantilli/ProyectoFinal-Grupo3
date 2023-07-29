@@ -7,6 +7,7 @@ import { consultaEditarPedido, obtenerPedido } from "../../helpers/queries";
 
 const EditarPedido = () => {
   const [productosDelMenu , setProductosDelMenu] = useState([])
+  const [subTotal, setSubtotal] = useState([])
   const {id}= useParams();
   const navegacion = useNavigate();
   const {
@@ -24,11 +25,12 @@ const EditarPedido = () => {
       setValue('estado', respuesta.estado)
       setValue('nota', respuesta.nota)
       setProductosDelMenu(respuesta.productosDelMenu)
+      setSubtotal(respuesta.subTotal)
     })
   }, [])
 
   const onSubmit = (pedidoEditado) =>{
-    const pedidoCompleto = {...pedidoEditado, productosDelMenu}
+    const pedidoCompleto = {...pedidoEditado, productosDelMenu, subTotal}
     consultaEditarPedido(pedidoCompleto, id).then((respuesta)=>{
       if (respuesta) {
         if (respuesta.status === 200) {

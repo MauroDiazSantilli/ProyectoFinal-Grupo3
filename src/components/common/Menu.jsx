@@ -45,6 +45,7 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado, modoOscuro, cambiarModoOscu
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  
 
   return (
   <>
@@ -68,7 +69,7 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado, modoOscuro, cambiarModoOscu
 
             {usuarioLogueado.id ? (
               <>
-                {usuarioLogueado.rol === "administrador" ? (
+                {usuarioLogueado.isAdmin === true ? (
                   <NavDropdown title="Administrador" id="admin-dropdown">
                     <NavDropdown.Item as={NavLink} to={"/administrador/productos"}>
                       Productos
