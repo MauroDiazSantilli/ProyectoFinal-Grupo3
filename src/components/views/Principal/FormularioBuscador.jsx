@@ -1,11 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
+import {FaShoppingBasket} from "react-icons/fa"
 import ContenedorComidas from "./ContenedorComidas";
 
 const FormularioBuscador = () => {
   const [categoriaBuscada, setCategoriaBuscada] =  useState('')
   const [busqueda, setBusqueda] = useState('')
+  const pedidos = sessionStorage.getItem('productosEnPedido');
+
+  const handleBotonPedido = () => {
+    const botonPedido = document.getElementById('botonPedido')
+    if (pedidos && pedidos.length > 0 && pedidos !== [" "]) {
+      botonPedido.classList.add("show-button");
+    } else {
+      botonPedido.classList.remove("show-button");
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("reset", handleBotonPedido);
+    return () => {
+      window.removeEventListener("reset", handleBotonPedido);
+    };
+  }, []);
 
   return (
     <Container fluid className="my-5">
@@ -28,6 +46,10 @@ const FormularioBuscador = () => {
         </Button>
       </Form>
       <ContenedorComidas categoriaBuscada={categoriaBuscada} setCategoriaBuscada={setCategoriaBuscada} busqueda={busqueda}></ContenedorComidas>
+          <a href="./pedido" className="btn-pedido" id="botonPedido">
+          <FaShoppingBasket>
+          </FaShoppingBasket>
+          </a>
     </Container>
   );
 };

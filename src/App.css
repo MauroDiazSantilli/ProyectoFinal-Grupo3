@@ -42,11 +42,12 @@ h1, h2{
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: goldenrod;
+  background-color: #8c7851;
   color: #fff;
   border: none;
   padding: 10px;
   border-radius: 50%;
+  aspect-ratio: 1/1;
   font-size: 24px;
   cursor: pointer;
   z-index: 1000;
@@ -55,7 +56,25 @@ h1, h2{
   transition: opacity 0.3s ease-in-out;
 }
 
+.btn-pedido {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  background-color: #8c7851;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  color: #fff;
+  font-size: 44px;
+  cursor: pointer;
+  z-index: 1000px;
+  opacity: 0;
+}
+
 .btn-floating.show-button {
+  opacity: 1;
+  pointer-events: auto;
+}
+.btn-pedido.show-button {
   opacity: 1;
   pointer-events: auto;
 }
