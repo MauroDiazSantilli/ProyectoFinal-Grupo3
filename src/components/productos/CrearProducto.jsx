@@ -57,7 +57,7 @@ const CrearProducto = () => {
                   "El nombre del producto debe contener como máximo 50 carácteres",
               },
               pattern: {
-                value: /^[A-Z\u00D1][A-ZÁ-Úa-zá-ú\s0-9\u00F1\u00D1]{1,49}$/,
+                value: /^[A-ZÁ-Ú\u00D1][A-ZÁ-Úa-zá-ú\s0-9\u00F1\u00D1]{1,49}$/,
                 message:
                   "El nombre del producto debe comenzar con letra mayúscula además solo puede contener letras y numeros entre 2 y 50 carácteres",
               },
@@ -152,7 +152,7 @@ const CrearProducto = () => {
                   "El detalle del Producto debe contener como máximo 150 carácteres",
               },
               pattern: {
-                value: /^([A-Z\u00D1])[A-Za-z0-9:,.\s\u00D1\u00F1]{7,199}$/,
+                value: /^([A-ZÁ-Ú\u00D1])[A-ZÁ-Úa-zá-ú0-9:,.\s\u00D1\u00F1]{7,199}$/,
                 message:
                   "El detalle del producto debe comenzar con mayúscula y debe contener como mínimo 8 carácteres y como máximo 150 carácteres (puede usar letras, números y signos de puntuación)",
               },
