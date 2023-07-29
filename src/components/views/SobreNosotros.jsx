@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import brand from "../../assets/brand.png"
+import chef1 from "../../assets/chefs/MauroDiazSantilli.jpeg"
 import '../../App.css';
 
 const AcercaDe = () => {
@@ -31,7 +32,7 @@ const AcercaDe = () => {
               <Row className="g-0">
                 <Col md={4}>
                   <Card.Img
-                    src="../assets/chefs/"
+                    src={chef1}
                     className="img-fluid rounded-circle"
                     alt="Foto Mauro Diaz Santilli"
                   />
@@ -40,7 +41,10 @@ const AcercaDe = () => {
                   <Card.Body>
                     <Card.Title>Mauro Diaz Santilli</Card.Title>
                     <Card.Text>
-                      Añadir descripcion
+                    26 años. Estudiante de Inglés y
+                      Profesor particular de Inglés y Francés. Aficionado de
+                      impresión 3D. Me gustan la natación, el café y las
+                      comedias
                     </Card.Text>
                   </Card.Body>
                 </Col>
