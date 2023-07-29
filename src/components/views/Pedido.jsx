@@ -12,7 +12,7 @@ const Pedido = () => {
     const [nota, setNota] = useState("")
     const [usuario, setUsuario] = useState("")
     const [fecha, setFecha] = useState("")
-    const [estado, setEstado] = useState("pendiente")
+    const [estado, setEstado] = useState(true)
     const [pedido, setPedido] = useState({})
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const Pedido = () => {
                 // Filtrar los productos que coinciden con los IDs guardados en la sesión
                 const productosEnMenu = [];
                 productosGuardadosEnSession.forEach((idProducto) => {
-                    const productosRepetidos = respuesta.filter((producto) => producto.id === idProducto);
+                    const productosRepetidos = respuesta.filter((producto) => producto._id === idProducto);
                     productosEnMenu.push(...productosRepetidos);
                 });
     
@@ -72,7 +72,7 @@ const Pedido = () => {
                 // Copiar el array de productos para poder modificarlo
                 const nuevosProductos = [...productosDelMenu];
                 // Obtener el ID del producto que se eliminará
-                const idProductoEliminado = nuevosProductos[index].id;
+                const idProductoEliminado = nuevosProductos[index]._id;
                 // Eliminar el producto específico del array usando el índice
                 nuevosProductos.splice(index, 1);
                 // Actualizar el estado local con el array actualizado
@@ -111,8 +111,8 @@ const Pedido = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 const nuevoPedido = {
-                    productosDelMenu: productosDelMenu.map((producto) => producto.id), // Solo seleccionar el id de cada producto
-                    usuario: usuario.nombreUsuario,
+                    productosDelMenu: productosDelMenu.map((producto) => producto._id), // Solo seleccionar el id de cada producto
+                    usuario: usuario.uid,
                     estado,
                     nota: nota.nota,
                     fecha,
@@ -149,12 +149,12 @@ const Pedido = () => {
     }
     const obtenerFechaDeHoy = () => {
         const hoy = new Date();
-        const dia = hoy.getDate();
-        const mes = hoy.getMonth() + 1; // Los meses en JavaScript comienzan desde 0, por lo que se suma 1 para obtener el mes correcto.
-        const anio = hoy.getFullYear();
+        // const dia = hoy.getDate();
+        // const mes = hoy.getMonth() + 1; // Los meses en JavaScript comienzan desde 0, por lo que se suma 1 para obtener el mes correcto.
+        // const anio = hoy.getFullYear();
         // Formatear la fecha como 'YYYY/MM/DD' (año/mes/día)
-        const fechaHoy = `${anio}/${mes < 10 ? '0' + mes : mes}/${dia < 10 ? '0' + dia : dia}`;
-        setFecha(fechaHoy)
+        // const fechaHoy = `${anio}/${mes < 10 ? '0' + mes : mes}/${dia < 10 ? '0' + dia : dia }`;
+        setFecha(hoy)
     };
 
 
@@ -176,7 +176,7 @@ const Pedido = () => {
                         {productosDelMenu.map((producto, index) => (
                             <tr key={index}>
                                 <td className="text-center align-middle">
-                                    <Button variant="danger" type="button" onClick={() => borrarProductoDelPedido(index, producto.id)}>
+                                    <Button variant="danger" type="button" onClick={() => borrarProductoDelPedido(index, producto._id)}>
                                         <BsFillTrashFill />
                                     </Button>
                                 </td>
@@ -209,10 +209,19 @@ const Pedido = () => {
                     </Form.Text>
                 </Form.Group>
                 <h3 className='my-2'>TOTAL PEDIDO: <span> ${calcularTotal()}</span></h3>
-
-                <Button type='submit' variant="primary" size="lg" className='my-3'>
+                {productosDelMenu.length ? (
+                    <>
+                    <Button type='submit' variant="primary" size="lg" className='my-3'>
+                    Realizar Pedido
+                </Button></>
+                ): (
+                    <>
+                    <Button type='submit' variant="primary" size="lg" className='my-3 disabled'>
                     Realizar Pedido
                 </Button>
+                    </>
+                )}
+                
             </Form>
             <Breadcrumb className='my-4'>
                 <Breadcrumb.Item href="/">Volver a la página principal</Breadcrumb.Item>

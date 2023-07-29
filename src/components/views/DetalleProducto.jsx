@@ -59,7 +59,7 @@ const DetalleProducto = () => {
       
   const verificarDisponibilidad = () => {
     if (producto.estado === true) {
-      return <Button id="btn-comida" className="btn w-100" type="button" onClick={() => agregarProductoAlPedido(producto.id)}>
+      return <Button id="btn-comida" className="btn w-100" type="button" onClick={() => agregarProductoAlPedido(producto._id)}>
         Agregar al pedido
       </Button>
     } else {

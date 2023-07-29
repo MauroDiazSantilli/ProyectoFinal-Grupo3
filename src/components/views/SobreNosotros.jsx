@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import brand from "../../assets/brand.png"
 import chef1 from "../../assets/chefs/MauroDiazSantilli.jpeg"
+import chef3 from "../../assets/chefs/FedericoLedesma.jpeg"
 import '../../App.css';
 
 const AcercaDe = () => {
@@ -41,10 +42,8 @@ const AcercaDe = () => {
                   <Card.Body>
                     <Card.Title>Mauro Diaz Santilli</Card.Title>
                     <Card.Text>
-                    26 años. Estudiante de Inglés y
-                      Profesor particular de Inglés y Francés. Aficionado de
-                      impresión 3D. Me gustan la natación, el café y las
-                      comedias
+                    Estudiante de Inglés y
+                      Profesor particular de Inglés y Francés. Realizó maquetado y diseños iniciales, login y creacion de usuarios.
                     </Card.Text>
                   </Card.Body>
                 </Col>
@@ -77,8 +76,8 @@ const AcercaDe = () => {
               <Row className="g-0">
                 <Col md={4}>
                   <Card.Img
-                    src="../assets/chefs/"
-                    className="img-fluid rounded-circle"
+                    src={chef3}
+                    className="img-fluid rounded-circle p-2"
                     alt="Foto Federico Ledesma"
                   />
                 </Col>
@@ -86,7 +85,7 @@ const AcercaDe = () => {
                   <Card.Body>
                     <Card.Title>Federico Ledesma</Card.Title>
                     <Card.Text>
-                      Añadir descripcion
+                    Desarrollador, realizó el maquetado de página principal, backend y filtro de búsqueda
                     </Card.Text>
                   </Card.Body>
                 </Col>

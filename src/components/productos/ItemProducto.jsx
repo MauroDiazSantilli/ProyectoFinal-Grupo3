@@ -18,7 +18,7 @@ const ItemProducto = ({ producto, setProductos }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         //aqui tengo que hacer la peticion delete
-        borrarProducto(producto.id).then((respuesta) => {
+        borrarProducto(producto._id).then((respuesta) => {
           if (respuesta.status === 200) {
             Swal.fire(
               "Producto Eliminado",
@@ -45,7 +45,7 @@ const ItemProducto = ({ producto, setProductos }) => {
       <td>
         <Link
           className="btn btn-warning mb-2 mb-md-0"
-          to={`/administrador/productos/editar/${producto.id}`}
+          to={`/administrador/productos/editar/${producto._id}`}
         >
           <FaPenToSquare className="fs-4"></FaPenToSquare>
         </Link>

@@ -71,8 +71,8 @@ const EditarPedido = () => {
             {...register("estado", { required: "Debe elegir una opcion" })}
           >
             <option value="">Seleccione una Categoria</option>
-            <option value="pendiente">Pendiente</option>
-            <option value="realizado">Realizado</option>
+            <option value={true}>Pendiente</option>
+            <option value={false}>Realizado</option>
           </Form.Select>
           <Form.Text className="text-danger">
             {errors.estado?.message}

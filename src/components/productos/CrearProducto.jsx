@@ -16,6 +16,7 @@ const CrearProducto = () => {
   const onSubtmit = (productoNuevo) => {
     const productoCompleto = {...productoNuevo, estado: true}
     crearProducto(productoCompleto).then((respuesta)  => {
+      console.log(productoCompleto)
       if(respuesta.status === 201)
       {
         Swal.fire(
@@ -98,12 +99,12 @@ const CrearProducto = () => {
             {...register("categoria", { required: "Debe elegir una opcion" })}
           >
             <option value="">Seleccione una Categoria</option>
-            <option value="Pastas">Pastas</option>
-            <option value="Sandwich">Sandwich</option>
-            <option value="Pizzas">Pizzas</option>
-            <option value="Postres">Postres</option>
-            <option value="Bebidas">Bebidas</option>
-            <option value="Al Plato">Al Plato</option>
+            <option value="pastas">Pastas</option>
+            <option value="sandwich">Sandwich</option>
+            <option value="pizzas">Pizzas</option>
+            <option value="postres">Postres</option>
+            <option value="bebidas">Bebidas</option>
+            <option value="al plato">Al Plato</option>
           </Form.Select>
           <Form.Text className="text-danger">
             {errors.categoria?.message}

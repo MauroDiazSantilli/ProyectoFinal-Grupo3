@@ -46,7 +46,7 @@ const Comida = ({ producto }) => {
 
   const verificarDisponibilidad = () => {
     if (producto.estado === true) {
-      return <Button id="btn-comida" className="btn w-100" type="button" onClick={() => agregarProductoAlPedido(producto.id)}>
+      return <Button id="btn-comida" className="btn w-100" type="button" onClick={() => agregarProductoAlPedido(producto._id)}>
         Agregar al pedido
       </Button>
     } else {
@@ -74,7 +74,7 @@ const Comida = ({ producto }) => {
                 {producto.detalle}
               </p>
               <h5 className="card-title" id="precio-comida">$ {producto.precio}</h5>
-              <Link to={`/detalleProducto/${producto.id}`} id="btn-verdetalle" className="btn w-100 mb-2" >Ver detalle</Link>
+              <Link to={`/detalleProducto/${producto._id}`} id="btn-verdetalle" className="btn w-100 mb-2" >Ver detalle</Link>
               {verificarDisponibilidad()}
             </div>
           </div>

@@ -3,27 +3,31 @@ const URL_USUARIO = import.meta.env.VITE_API_USUARIO
 const URL_PEDIDOS = import.meta.env.VITE_API_PEDIDOS
 
 
-export const login = async (usuario) => {
+export const login = async (usuario) =>{
   try {
-    const respuesta = await fetch(URL_USUARIO);
-    const listaUsuarios = await respuesta.json();
-    const usuarioBuscado = listaUsuarios.find(
-      (itemUsuario) => itemUsuario.email === usuario.email
-    );
-    if (usuarioBuscado) {
-      if (usuarioBuscado.password === usuario.password) {
-        return usuarioBuscado;
-      } else {
-        return "";
-      }
-    } else {
-      return null;
-    }
+    console.log(usuario);
+    const respuesta = await fetch(URL_USUARIO, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(usuario),
+    });
+    const datos = await respuesta.json();
+    return {
+      status: respuesta.status,
+      mensaje: datos.mensaje,
+      usuario: datos.nombre,
+      estado: datos.estado,
+      isAdmin: datos.isAdmin,
+      uid: datos.uid,
+      token: datos.token
+    };
   } catch (error) {
-    console.log(error);
-    return null;
+    console.log("errores en el login");
+    return;
   }
-};
+}
 
 export const obtenerUsuarios = async()=>{
   try {
@@ -47,7 +51,7 @@ export const obtenerUsuario = async(id)=>{
 
 export const crearUsuario = async (usuario) => {
   try {
-    const respuesta = await fetch(URL_USUARIO, {
+    const respuesta = await fetch(URL_USUARIO+'/registro', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

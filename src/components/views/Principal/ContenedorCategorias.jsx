@@ -8,6 +8,7 @@ const ContenedorCategorias = ({setCategoriaBuscada}) => {
         <thead>
           <tr>
             <Categoria categoria="Todos"  setCategoriaBuscada={setCategoriaBuscada}></Categoria>
+            <Categoria categoria="Sandwich"  setCategoriaBuscada={setCategoriaBuscada}></Categoria>
             <Categoria categoria="Al Plato"  setCategoriaBuscada={setCategoriaBuscada}></Categoria>
             <Categoria categoria="Pastas"  setCategoriaBuscada={setCategoriaBuscada}></Categoria>
             <Categoria categoria="Pizzas"  setCategoriaBuscada={setCategoriaBuscada}></Categoria>

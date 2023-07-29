@@ -3,8 +3,10 @@ import { Button } from "react-bootstrap";
 const Categoria = ({categoria , setCategoriaBuscada}) => {
   
   const filtroCategoria = () =>{
-    setCategoriaBuscada(categoria)
+    const categoriaMinuscula = categoria.toLowerCase();
+    setCategoriaBuscada(categoriaMinuscula)
   }
+  
   return (
     <th>
       <Button className="categoria my-4 d-flex justify-content-center" onClick={filtroCategoria}>

@@ -19,7 +19,7 @@ const ItemUsuario = ({usuario, setUsuarios}) => {
     }).then((result) => {
       if (result.isConfirmed) {
         //aqui tengo que hacer la peticion delete
-        borrarUsuario(usuario.id).then((respuesta) => {
+        borrarUsuario(usuario._id).then((respuesta) => {
           if (respuesta.status === 200) {
             Swal.fire(
               "Usuario Eliminado",
@@ -47,7 +47,7 @@ const ItemUsuario = ({usuario, setUsuarios}) => {
       <td>
         <Link
           className="btn btn-warning mb-2 mb-md-0"
-          to={`/administrador/usuarios/editar/${usuario.id}`}
+          to={`/administrador/usuarios/editar/${usuario._id}`}
         >
           <FaPenToSquare className="fs-4"></FaPenToSquare>
         </Link>

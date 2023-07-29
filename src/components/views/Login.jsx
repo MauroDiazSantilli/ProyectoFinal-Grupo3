@@ -22,6 +22,7 @@ const Login = ({ setUsuarioLogueado }) => {
       if (respuesta) {
         if (respuesta !== "") {
           const usuarioSinAdmin = { ...respuesta};
+          console.log(usuarioSinAdmin)
           if(usuarioSinAdmin.estado === true){
           sessionStorage.setItem("usuario", JSON.stringify(usuarioSinAdmin));
           setUsuarioLogueado(usuarioSinAdmin);
