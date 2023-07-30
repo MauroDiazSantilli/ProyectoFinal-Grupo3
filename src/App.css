@@ -410,16 +410,3 @@ textarea{
 .modo-oscuro .texto-acerca{
 color: goldenrod;
 }
-
-.tabla-oscuro {
-  background-color: #333; 
-  color: #fff; 
-}
-
-.tabla-oscuro th {
-  background-color: #222; 
-}
-
-.tabla-oscuro td {
-  border-color: #444; 
-}

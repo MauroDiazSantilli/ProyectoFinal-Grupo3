@@ -8,7 +8,7 @@ const Categoria = ({categoria , setCategoriaBuscada}) => {
   }
   
   return (
-    <th>
+    <th className="bg-secondary">
       <Button className="categoria my-4 d-flex justify-content-center" onClick={filtroCategoria}>
         <span>{categoria}</span>
       </Button>

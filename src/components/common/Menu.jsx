@@ -51,7 +51,7 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado, modoOscuro, cambiarModoOscu
 
   return (
   <>
-    <Navbar className={`navbar-cristal ${modoOscuro ? "navbar-oscuro" : ""}`} variant="dark" expand="lg">
+    <Navbar className={`navbar-cristal ${modoOscuro ? "navbar-oscuro" : ""} mainSection`} variant="dark" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to={"/"}>
           <img src={logo} alt="Logo JSON" className="logoJSON" />

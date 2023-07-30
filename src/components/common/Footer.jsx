@@ -9,7 +9,7 @@ const Footer = ({ modoOscuro }) => {
 
   return (
     
-    <footer className={`footer ${modoOscuro ? "footer-oscuro" : ""}`}>
+    <footer className={`footer ${modoOscuro ? "footer-oscuro" : ""} mainSection`}>
       <Container>
         <Row>
           <Col md={3}>
