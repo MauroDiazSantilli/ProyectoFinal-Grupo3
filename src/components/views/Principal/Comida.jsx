@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2"
 
 
-const Comida = ({ producto }) => {
+const Comida = ({ producto, setHayProductosEnPedido }) => {
+
+
 
   const agregarProductoAlPedido = (idProducto) => {
 
@@ -25,6 +27,7 @@ const Comida = ({ producto }) => {
           const productosEnPedido = JSON.parse(sessionStorage.getItem("productosEnPedido")) || [];
           // Agregar el nuevo id de producto al array
           productosEnPedido.push(idProducto);
+          setHayProductosEnPedido(true);
           // Guardar el array actualizado en la sessionStorage con la clave "productosEnPedido"
           sessionStorage.setItem("productosEnPedido", JSON.stringify(productosEnPedido));
           Swal.fire(

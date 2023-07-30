@@ -41,7 +41,10 @@ h1, h2{
   width: 85px;
   height: auto;
 }
-
+.btn-pedido{
+  margin-bottom: 100px;
+  text-decoration: none;
+}
 .btn-floating {
   position: fixed;
   bottom: 20px;

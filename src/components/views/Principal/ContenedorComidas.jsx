@@ -11,7 +11,7 @@ import ContenedorCategorias from "./ContenedorCategorias";
 
 
 
-const ContenedorComidas = ({categoriaBuscada, setCategoriaBuscada, busqueda}) => {
+const ContenedorComidas = ({categoriaBuscada, setCategoriaBuscada, busqueda, setHayProductosEnPedido}) => {
 
   const [productos, setProductos] = useState([])
 
@@ -41,7 +41,7 @@ const ContenedorComidas = ({categoriaBuscada, setCategoriaBuscada, busqueda}) =>
           {
             productos.map((producto) => {
               if (categoriaBuscada === producto.categoria || categoriaBuscada === "" || categoriaBuscada === "todos") {
-                return  <Comida producto={producto} key={producto._id}></Comida>
+                return  <Comida setHayProductosEnPedido={setHayProductosEnPedido} producto={producto} key={producto._id}></Comida>
               }
             })
           }
