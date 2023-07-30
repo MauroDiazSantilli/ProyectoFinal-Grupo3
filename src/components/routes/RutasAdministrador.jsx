@@ -4,7 +4,6 @@ import CrearProducto from "../productos/CrearProducto";
 import AdminUsuarios from "../usuarios/AdminUsuarios";
 import AdminPedidos from "../pedidos/AdminPedidos";
 import EditarProducto from "../productos/EditarProducto";
-import EditarPedido from "../pedidos/EditarPedido";
 import EditarUsuario from "../usuarios/EditarUsuario";
 import Error404 from "../views/Error404";
 
@@ -24,11 +23,7 @@ const RutasAdministrador = () => {
           element={<EditarProducto></EditarProducto>}
         ></Route>
         <Route exact path="/pedidos" element={<AdminPedidos></AdminPedidos>}></Route>
-        <Route
-        exact
-          path="/pedidos/editar/:id"
-          element={<EditarPedido></EditarPedido>}
-        ></Route>
+        
         <Route
         exact
           path="/usuarios"
