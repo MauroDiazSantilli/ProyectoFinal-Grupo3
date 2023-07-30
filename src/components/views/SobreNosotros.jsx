@@ -4,6 +4,7 @@ import brand from "../../assets/brand.png"
 import chef1 from "../../assets/chefs/MauroDiazSantilli.jpeg"
 import chef3 from "../../assets/chefs/FedericoLedesma.jpeg"
 import chef4 from "../../assets/chefs/JulianMartin.jpeg"
+import chef5 from "../../assets/chefs/AgustinSandoval.jpeg"
 import '../../App.css';
 
 const AcercaDe = () => {
@@ -43,8 +44,7 @@ const AcercaDe = () => {
                   <Card.Body>
                     <Card.Title>Mauro Diaz Santilli</Card.Title>
                     <Card.Text>
-                    Estudiante de Inglés y
-                      Profesor particular de Inglés y Francés. Realizó maquetado y diseños iniciales, login y creacion de usuarios.
+                     Realizó maquetado y diseños iniciales, login y creacion de usuarios.
                     </Card.Text>
                   </Card.Body>
                 </Col>
@@ -86,7 +86,7 @@ const AcercaDe = () => {
                   <Card.Body>
                     <Card.Title>Federico Ledesma</Card.Title>
                     <Card.Text>
-                    Desarrollador, realizó el maquetado de página principal, backend y filtro de búsqueda.
+                    Realizó el maquetado de página principal, backend y filtro de búsqueda.
                     </Card.Text>
                   </Card.Body>
                 </Col>
@@ -119,8 +119,8 @@ const AcercaDe = () => {
               <Row className="g-0">
                 <Col md={4}>
                   <Card.Img
-                    src="../assets/chefs/"
-                    className="img-fluid rounded-circle"
+                    src={chef5}
+                    className="img-fluid rounded-circle p-2"
                     alt="Foto Agustin Sandoval"
                   />
                 </Col>
@@ -128,7 +128,7 @@ const AcercaDe = () => {
                   <Card.Body>
                     <Card.Title>Agustin Sandoval</Card.Title>
                     <Card.Text>
-                      Añadir descripcion
+                      Realizó maquetado de login, creacion de usuarios, validaciones de los mismos y modificacion de usuarios, productos y pedidos.
                     </Card.Text>
                   </Card.Body>
                 </Col>
