@@ -2,6 +2,7 @@ import ItemUsuario from "./ItemUsuario";
 import { Container, Table } from "react-bootstrap";
 import { useState } from "react";
 import { useEffect } from "react";
+import Swal from "sweetalert2"
 import { obtenerUsuarios } from "../../helpers/queries";
 const AdminUsuarios = () => {
 

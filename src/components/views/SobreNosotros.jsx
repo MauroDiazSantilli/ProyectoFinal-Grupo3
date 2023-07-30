@@ -3,6 +3,7 @@ import { Container, Row, Col, Card } from 'react-bootstrap';
 import brand from "../../assets/brand.png"
 import chef1 from "../../assets/chefs/MauroDiazSantilli.jpeg"
 import chef3 from "../../assets/chefs/FedericoLedesma.jpeg"
+import chef4 from "../../assets/chefs/JulianMartin.jpeg"
 import '../../App.css';
 
 const AcercaDe = () => {
@@ -85,7 +86,7 @@ const AcercaDe = () => {
                   <Card.Body>
                     <Card.Title>Federico Ledesma</Card.Title>
                     <Card.Text>
-                    Desarrollador, realizó el maquetado de página principal, backend y filtro de búsqueda
+                    Desarrollador, realizó el maquetado de página principal, backend y filtro de búsqueda.
                     </Card.Text>
                   </Card.Body>
                 </Col>
@@ -97,8 +98,8 @@ const AcercaDe = () => {
               <Row className="g-0">
                 <Col md={4}>
                   <Card.Img
-                    src="../assets/chefs/"
-                    className="img-fluid rounded-circle"
+                    src={chef4}
+                    className="img-fluid rounded-circle p-2"
                     alt="Foto Julian Martin"
                   />
                 </Col>
@@ -106,7 +107,7 @@ const AcercaDe = () => {
                   <Card.Body>
                     <Card.Title>Julian Martin</Card.Title>
                     <Card.Text>
-                      Añadir descripcion
+                      Realizó validaciones de productos, pedidos y usuarios, alta y baja de productos y las categorias.
                     </Card.Text>
                   </Card.Body>
                 </Col>

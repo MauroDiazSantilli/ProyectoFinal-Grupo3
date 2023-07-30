@@ -36,7 +36,7 @@ const AdminPedidos = () => {
       <hr></hr>
       <h2>Pedidos Pendientes</h2>
       {pendientes.length === 0 ? ( // Verifica si no hay pedidos pendientes
-        <h3>No hay pedidos pendientes</h3>
+        <h3 className="text-secondary">No hay pedidos pendientes</h3>
       ) : (
         <Row>
           {pendientes.map((pedido) => (
@@ -52,7 +52,7 @@ const AdminPedidos = () => {
       <hr></hr>
       <h2>Pedidos Realizados</h2>
       {realizados.length === 0 ? ( // Verifica si no hay pedidos realizados
-        <h3>No hay pedidos realizados</h3>
+        <h3 className="text-secondary">No hay pedidos realizados</h3>
       ) : (
         <Row>
           {realizados.map((pedido) => (

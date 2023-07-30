@@ -71,7 +71,7 @@ const CrearProducto = () => {
           <Form.Label className="fs-4">Precio*</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Ej: Milanesa con Papas Fritas"
+            placeholder="Ej: 2500"
             {...register("precio", {
               required: "El nombre del producto es obligatorio",
               min: {
@@ -124,7 +124,7 @@ const CrearProducto = () => {
                   "La URL de la Imagen Imagen del Producto debe contener como mínimo 1 carácter",
               },
               pattern: {
-                value: /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|png|svg)$/,
+                value: /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|png|svg|webp)$/,
                 message:
                   "La URL de la Imagen debe terminar con .jpg/.png/.svg/.jpeg",
               },
@@ -152,7 +152,7 @@ const CrearProducto = () => {
                   "El detalle del Producto debe contener como máximo 150 carácteres",
               },
               pattern: {
-                value: /^([A-Z\u00D1])[A-Za-z0-9:,.\s\u00D1\u00F1]{7,199}$/,
+                value: /^(?=.*[A-Z])[A-Za-zÁÉÍÓÚáéíóúÑñ0-9:,.\s]{7,199}$/,
                 message:
                   "El detalle del producto debe comenzar con mayúscula y debe contener como mínimo 8 carácteres y como máximo 150 carácteres (puede usar letras, números y signos de puntuación)",
               },

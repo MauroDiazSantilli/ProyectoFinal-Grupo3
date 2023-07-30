@@ -12,9 +12,9 @@
 }
 
 
-
 h1, h2{
   font-family: 'Castoro Titling', cursive;
+  color: var(--texto-secundario)!important;
 }
 
 .mainSection{
@@ -22,15 +22,19 @@ h1, h2{
   overflow: hidden;
 }
 
-/*Navbar*/
+#btn-agregar-producto{
+  background-color: var(--detalles);
+  border: none;
+}
+/*Navbbar*/
 
 .navbar-cristal {
-  background-color: #8B4513; 
+  background-color: var(--detalles); 
   backdrop-filter: blur(10px); 
 }
 
 .navbar-cristal .nav-link:hover {
-  color: gold;
+  color: #dab879;
 }
 
 .logoJSON{
@@ -42,12 +46,12 @@ h1, h2{
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: goldenrod;
+  background-color: var(--detalles);
   color: #fff;
   border: none;
-  padding: 10px;
+  padding: 0.6em;
   border-radius: 50%;
-  font-size: 24px;
+  font-size: 1.3rem;
   cursor: pointer;
   z-index: 1000;
   opacity: 0;
@@ -64,25 +68,15 @@ html {
   scroll-behavior: smooth;
 }
 
-
-.navbar-oscuro {
-  background-color: #222;
-  color: #fff;
+#btn-cerrar-sesion {
+border: none;
+background-color: var(--detalles);
+font-size: 1.4rem;
+padding: 0 0 0.5em 0;
 }
 
-.navbar-oscuro .nav-link:hover {
-  color: gold;
-}
-
-.btn-modo-oscuro {
-  margin-left: 10px;
-}
-
-
-@media (max-width: 991.98px) {
-  .btn-cerrar-sesion {
-    margin-top: 20px; 
-  }
+.headLine{
+  background-color: var(--detalles)!important;
 }
 
 /*Landing Page*/
@@ -114,8 +108,8 @@ html {
   animation: pulso 2s infinite;
 }
 
-.categoria{
-  width: 170px !important;
+/* .categoria{
+  width: 150px !important;
   aspect-ratio: 1/1 !important;
   border-radius: 50% !important;
   background-color: var(--detalles) !important;
@@ -123,6 +117,18 @@ html {
   text-decoration: none !important;
   color: #fafafa !important;
   border-color: black !important;
+} */
+.categoria {
+  width: 140px !important;
+  aspect-ratio: 1/1 !important;
+  border-radius: 50% !important;
+  background-color: var(--detalles) !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  color: #fafafa !important;
+  font-weight: bold !important;
+  border: 2px solid var(--texto-secundario) !important;
+  transition: all 0.3s ease !important;
 }
 
 .categoria span{
@@ -168,7 +174,7 @@ html {
 }
 
 .footer-link:hover {
-  color: gold;
+  color: var(--detalles)
 }
 
 .footer-icon-link {
@@ -176,7 +182,7 @@ html {
 }
 
 .footer-icon {
-  fill: gold;
+  fill: var(--detalles);
 }
 
 .footer-icon:hover {
@@ -323,6 +329,18 @@ textarea{
   .imagenCard{
     aspect-ratio: 1/2;
   }
+  .categoria{
+    opacity: .85;
+  }
+  .categoria:hover {
+    transform: scale(1.1)!important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)!important;
+    opacity: 1;
+  }
+
+  #btn-cerrar-sesion{
+    padding:0.1em 0.6em;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991px)
@@ -337,6 +355,9 @@ textarea{
 {
   .imagenCard{
     aspect-ratio: 1/0.5;
+  }
+  .btn-cerrar-sesion {
+    margin-top: 20px; 
   }
 }
 

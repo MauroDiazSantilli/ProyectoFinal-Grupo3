@@ -63,8 +63,8 @@ const Comida = ({ producto }) => {
           <div className="col-md-5">
             <Image
               src={producto.imagen}
-              className="imagenCard w-100 rounded-start object-fit-cover"
-              alt="..."
+              className="imagenCard w-100 rounded-start object-fit-cover h-100"
+              alt={producto.nom}
             ></Image>
           </div>
           <div className="col-md-7">
