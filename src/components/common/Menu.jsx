@@ -3,7 +3,8 @@ import { Navbar, Container, Nav, Button, NavDropdown } from "react-bootstrap";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FaArrowUp } from "react-icons/fa";
-import { MdFastfood, MdLogin } from "react-icons/md";
+import { MdFastfood, MdLogin} from "react-icons/md";
+import { FaSun, FaMoon } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import "../../App.css";
 import Swal from "sweetalert2";
@@ -64,11 +65,9 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado, modoOscuro, cambiarModoOscu
             <NavLink className="nav-item nav-link" to={"/AcercaDe"}>
               Chefs
             </NavLink>
-            <NavLink className="nav-item nav-link" to={"/pedido"}>
-              <FaUtensils className="fs-4" />
-            </NavLink>
+            
 
-            {usuarioLogueado.id ? (
+            {usuarioLogueado.uid ? (
               <>
                 {usuarioLogueado.isAdmin === true ? (
                   <NavDropdown title="Administrador" id="admin-dropdown">
@@ -83,6 +82,13 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado, modoOscuro, cambiarModoOscu
                     </NavDropdown.Item>
                   </NavDropdown>
                 ) : null}
+                <NavLink className="nav-item nav-link" to={"/pedido"}>
+                    <MdFastfood className="fs-4" />
+                  </NavLink>
+                <NavLink className="nav-item nav-link" to={"/pedido"}>
+                    <MdFastfood className="fs-4" />
+                  </NavLink>
+                  <div></div>
 
                 <Button variant="dark" onClick={logout} style={{ fontSize: "1rem", fontWeight: "bold" }}>
                   Cerrar Sesión
@@ -95,11 +101,11 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado, modoOscuro, cambiarModoOscu
             ) : (
               <>
                 <NavLink className="nav-item nav-link" to={"/login"}>
-                  Iniciar Sesión
-                </NavLink>
-                <NavLink className="nav-item nav-link" to={"/registro"}>
-                  Registrarse
-                </NavLink>
+                    <MdLogin className="fs-4"></MdLogin>
+                  </NavLink>
+                  <NavLink className="nav-item nav-link" to={"/registro"}>
+                    Registrarse
+                  </NavLink>
                 <NavLink className="nav-item nav-link btn-modo-oscuro" onClick={cambiarModoOscuro}>
   {modoOscuro ? <FaSun style={{ fontSize: "1.2rem" }} /> : <FaMoon style={{ fontSize: "1.2rem" }} />}
 </NavLink>
