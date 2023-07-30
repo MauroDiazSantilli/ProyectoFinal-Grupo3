@@ -89,16 +89,8 @@
       "estado": true,
       "password": "321Xyz89",
       "id": 3
-    },
-    {
-      "nombreUsuario": "joaquin",
-      "email": "joaquin@gmail.com",
-      "estado": false,
-      "isAdmin": false,
-      "password": "Contraseña1",
-      "id": 4
     }
-  
+
   ],
   "pedidos": [
     {
